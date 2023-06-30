@@ -65,10 +65,10 @@ public class UserFacadeDBTest {
 		User user = new User(1, "User 1");
 
 		// Anropa metoden som ska testas
-		userFacade.addOrUpdateUser(user);
+		userFacade.updateUser(1,"user updated");
 
 		// Kontrollera att addOrUpdateUser-metoden anropas på rätt sätt
-		verify(mockedDatabase).addOrUpdateUser(user);
+		verify(mockedDatabase).updateUserInDatabase(1,"user updated");
 	}
 
 	@Test

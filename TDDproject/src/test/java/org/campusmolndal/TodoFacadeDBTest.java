@@ -65,10 +65,10 @@ public class TodoFacadeDBTest {
 		Todo todo = new Todo(1, "Todo 1", "Description 1", false);
 
 		// Anropa metoden som ska testas
-		todoFacade.addOrUpdateTodo(todo);
+		todoFacade.updateTodo(1, "Todo 1 pro", "Description 1 pro", false);
 
-		// Kontrollera att addOrUpdateTodo-metoden anropas på rätt sätt
-		verify(mockedDatabase).addOrUpdateTodo(todo);
+		// Kontrollera att update-metoden anropas på rätt sätt
+		verify(mockedDatabase).updateTodoInDatabase(1, "Todo 1 pro", "Description 1 pro", false);
 	}
 
 	@Test

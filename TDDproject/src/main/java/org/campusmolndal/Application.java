@@ -11,10 +11,12 @@ public class Application {
 	 Database database = new Database();
 
 	public void run() throws SQLException {
+		 TodoFacadeDB toDoFacadeDB = new TodoFacadeDB();
+		 UserfacadeDB userfacadeDB = new UserfacadeDB();
 		toDoFacadeDB.connect("userTodo");
 		userfacadeDB.connect("userTodo");
-		toDoFacadeDB.createTable();
-		userfacadeDB.createTable();
+		toDoFacadeDB.createTodoTable();
+		userfacadeDB.createUserTable();
 		boolean exit = false;
 		while (!exit) {
 			System.out.println("----- TODO App Menu -----");
@@ -74,7 +76,8 @@ public class Application {
 			}
 		}
 
-		toDoFacadeDB.closeConnection();
+		//toDoFacadeDB.closeConnection();
+		//userfacadeDB.closeConnection();
 	}
 
 	private static void createNewTodo() {
@@ -115,29 +118,45 @@ public class Application {
 	private static void updateTodo() {
 		System.out.println("Enter todo ID:");
 		int id = scanner.nextInt();
-		scanner.nextLine(); // Consume newline character
-		Todo todo = toDoFacadeDB.getTodoById(id);
-		if (todo != null) {
-			System.out.println("Enter new title (leave empty to keep current):");
-			String newTitle = scanner.nextLine();
-			System.out.println("Enter new description (leave empty to keep current):");
-			String newDescription = scanner.nextLine();
-			System.out.println("Is completed? (true/false):");
-			boolean newCompleted = scanner.nextBoolean();
+		//toDoFacadeDB.deleteTodoFromDatabase(id);
+		scanner.nextLine();
+		System.out.println("Enter title:");
+		String title = scanner.nextLine();
+		System.out.println("Enter description:");
+		String description = scanner.nextLine();
+		System.out.println("Is completed? (true/false):");
+		boolean completed = scanner.nextBoolean();
 
-			if (!newTitle.isEmpty()) {
-				todo.setTitle(newTitle);
-			}
-			if (!newDescription.isEmpty()) {
-				todo.setDescription(newDescription);
-			}
-			todo.setCompleted(newCompleted);
+		//Todo todo = new Todo(0, title, description, completed);
+		toDoFacadeDB.updateTodo(id, title, description, completed);
+		System.out.println("Todo updated successfully.");
 
-			toDoFacadeDB.addOrUpdateTodo(todo);
-			System.out.println("Todo updated successfully.");
-		} else {
-			System.out.println("Todo not found.");
-		}
+
+//		System.out.println("Enter todo ID:");
+//		int id = scanner.nextInt();
+//		Todo todo = toDoFacadeDB.getTodoById(id);
+//		if (todo != null) {
+//			toDoFacadeDB.deleteTodoFromDatabase(id);
+//			System.out.println("Enter new title (leave empty to keep current):");
+//			String newTitle = scanner.nextLine();
+//			System.out.println("Enter new description (leave empty to keep current):");
+//			String newDescription = scanner.nextLine();
+//			System.out.println("Is completed? (true/false):");
+//			boolean newCompleted = scanner.nextBoolean();
+//
+//			if (!newTitle.isEmpty()) {
+//				todo.setTitle(newTitle);
+//			}
+//			if (!newDescription.isEmpty()) {
+//				todo.setDescription(newDescription);
+//			}
+//			todo.setCompleted(newCompleted);
+//
+//			toDoFacadeDB.updateTodo(id,newTitle,newDescription,newCompleted);
+//			System.out.println("Todo updated successfully.");
+//		} else {
+//			System.out.println("Todo not found.");
+//		}
 	}
 
 	private static void deleteTodo() {
@@ -152,7 +171,7 @@ public class Application {
 		String name = scanner.nextLine();
 
 		User user = new User(0, name);
-		userfacadeDB.addOrUpdateUser(user);
+		userfacadeDB.addUser(user);
 		System.out.println("User created successfully.");
 	}
 
@@ -181,21 +200,32 @@ public class Application {
 	private static void updateUser() {
 		System.out.println("Enter user ID:");
 		int id = scanner.nextInt();
-		scanner.nextLine(); // Consume newline character
-		User user = userfacadeDB.getUserById(id);
-		if (user != null) {
-			System.out.println("Enter new name (leave empty to keep current):");
-			String newName = scanner.nextLine();
+		//userfacadeDB.deleteUserFromDatabase(id);
+		scanner.nextLine();
+		System.out.println("Enter user name:");
+		String name = scanner.nextLine();
 
-			if (!newName.isEmpty()) {
-				user.setName(newName);
-			}
-
-			userfacadeDB.addOrUpdateUser(user);
-			System.out.println("User updated successfully.");
-		} else {
-			System.out.println("User not found.");
-		}
+		//User user = new User(0, name);
+		userfacadeDB.updateUser(id,name);
+		System.out.println("User updated successfully.");
+//		System.out.println("Enter user ID:");
+//		int id = scanner.nextInt();
+//		scanner.nextLine(); // Consume newline character
+//		userfacadeDB.deleteUserFromDatabase(id);
+//		User user = userfacadeDB.getUserById(id);
+//		if (user != null) {
+//			System.out.println("Enter new name (leave empty to keep current):");
+//			String newName = scanner.nextLine();
+//
+//			if (!newName.isEmpty()) {
+//				user.setName(newName);
+//			}
+//
+//			userfacadeDB.addUser(user);
+//			System.out.println("User updated successfully.");
+//		} else {
+//			System.out.println("User not found.");
+//		}
 	}
 
 	private static void deleteUser() {

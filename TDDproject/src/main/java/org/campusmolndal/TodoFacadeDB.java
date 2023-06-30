@@ -6,14 +6,15 @@ import java.util.List;
 
 public class TodoFacadeDB {
 	 Database database = new Database();
+	 private String dbName = "table1";
 
 
 	public void connect(String dbName) {
 		database.connect(dbName);
 	}
-	public void createTable() throws SQLException {
+	public void createTodoTable() throws SQLException {
 		connect("userTodo");
-		database.createTablesIfNotExist();
+		database.createTodoTablesIfNotExist();
 	}
 	public void closeConnection() {
 		database.closeConnection();
@@ -31,8 +32,15 @@ public class TodoFacadeDB {
 
 	public void addOrUpdateTodo(Todo todo) {
 		connect("userTodo");
-		database.addOrUpdateTodo(todo);
+		database.addTodoToDatabase(todo);
 	}
+
+	public void updateTodo(int id, String title, String description, boolean completed) {
+		connect("userTodo");
+		database.updateTodoInDatabase(id,title,description,completed);
+	}
+
+
 
 	public void deleteTodoFromDatabase(int id) {
 		connect("userTodo");

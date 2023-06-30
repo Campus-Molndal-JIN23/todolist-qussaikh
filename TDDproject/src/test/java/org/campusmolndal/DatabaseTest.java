@@ -20,7 +20,6 @@ public class DatabaseTest {
 			statement.executeUpdate("CREATE TABLE todos (id INTEGER PRIMARY KEY, title TEXT, description TEXT, completed INTEGER)");
 			statement.executeUpdate("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)");
 
-			// Skapa en TodoDao med den skapade anslutningen
 			database = new Database();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -33,8 +32,8 @@ public class DatabaseTest {
 		Todo todo = new Todo(1, "Todo 1", "Description 1", false);
 
 		// Anslut till databasen
-		database.connect("todoTest");
-		database.createTablesIfNotExist();
+		database.connect("todo1Test");
+		database.createTodoTablesIfNotExist();
 
 		// Lägg till Todo i databasen
 		database.addTodoToDatabase(todo);
@@ -45,7 +44,7 @@ public class DatabaseTest {
 
 		// Uppdatera Todo
 		todo.setTitle("Updated Title");
-		database.updateTodoInDatabase(todo);
+		database.updateTodoInDatabase(1, "Updated Title", "Description 1 pro", false);
 
 		// Hämta uppdaterad Todo från databasen
 		Todo updatedTodo = database.getTodoById(1);
@@ -64,8 +63,8 @@ public class DatabaseTest {
 		// Skapa en ny User
 		User user = new User(1, "User 1");
 
-		database.connect("userTest");
-		database.createTablesIfNotExist();
+		database.connect("user1Test");
+		database.createUserTablesIfNotExist();
 
 		// Lägg till User i databasen
 		database.addUserToDatabase(user);
@@ -76,7 +75,7 @@ public class DatabaseTest {
 
 		// Uppdatera User
 		user.setName("Updated user");
-		database.updateUserInDatabase(user);
+		database.updateUserInDatabase(1, "Updated user");
 
 		// Hämta uppdaterad User från databasen
 		User updatedUser = database.getUserById(1);
@@ -89,5 +88,4 @@ public class DatabaseTest {
 		User deletedUser = database.getUserById(1);
 		assertNull(deletedUser);
 	}
-
 }
