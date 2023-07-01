@@ -1,72 +1,54 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/MYVtI0hB)
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-7f7980b617ed060a017424585567c406b6ee15c891e84e1186181d67ecf80aa0.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=11373973)
-# Project name
+# Todo list
 
 ## Description
+This project is a ToDo application that allows users to manage tasks. 
+It provides functionalities to create, read, update, and delete tasks. 
+The application is developed using Java programming language and utilizes Maven as the build tool. 
+It is also tested using JUnit and Mockito frameworks.
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
 
 ## Table of Contents (Optional)
 
 If your README is long, add a table of contents to make it easy for users to find what they need.
 
 - [Installation](#installation)
+- [Dependencies](#Dependencies)
 - [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+- [License](#License)
+- [Contribute](#Contribute)
+- [Acknowledgements](#Acknowledgements)
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+To set up the project, follow these steps:
 
+1-Clone the repository to your local machine.
+2-Make sure you have Java Development Kit (JDK) installed. The project was coded with Java version 19.0.1.
+3-Import the project into your preferred Java IDE.
+4-Your IDE may prompt you to set up the SDK. In that case, select the latest working version.
+5-Build the project using Maven.
+
+## Dependencies
+The project's dependencies are listed in the pom.xml file. 
+Maven will automatically download and manage these dependencies when you build the project.
 ## Usage
+To use the ToDo application, follow these steps:
 
-Provide instructions and examples for use. Include screenshots as needed.
+1-Run the application from your IDE.
+2-You will be presented with a menu of options.
+3-Choose a number corresponding to the desired action you want to perform.
+4-Follow the instructions provided by the application to create, read, update, or delete tasks.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
-
-## Credits
-
-List your collaborators, if any, with links to their GitHub profiles.
-* [member 1](https://github.com/person1)
-* [member 2](https://github.com/person1)
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-* [junit jupiter 5](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter/5.7.0)
-
-If you followed tutorials, include links to those here as well.
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [MIT License](https://choosealicense.com/licenses/mit/).
+This project is licensed under the MIT License. See the LICENSE file for more information, refer to [MIT License](https://choosealicense.com/licenses/mit/).
 
----
+## Contribute
+Contributions to this project are welcome. If you want to contribute, you can clone the repository, make your changes, and submit a pull request.
 
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+## Acknowledgements
+The test meets the requirements _ basgrupp rörig AB
 
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, list them here.
-
-## How to Contribute
-
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
