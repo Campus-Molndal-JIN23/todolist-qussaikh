@@ -44,20 +44,6 @@ Jag gjorde några ändringar i min ursprungliga lösning under arbetets gång. T
 
 Jag stötte på stora utmaningar när det kom till att skapa tester för databasen. Min enda lösning var att förlita mig helt på Chat GPT och försöka förstå resonemanget bakom den kod den genererade. Projektet i sin helhet var otroligt krävande. Det var en konstant kamp att få programmet att agera på det sätt som var avsett.
 
-### Beskriv lite olika lösningar du gjort
 
-### Beskriv något som var besvärligt att få till
-
-### Beskriv om du fått byta lösning och varför i sådana fall
-
-## Reflektion & Slutsatser
-
-### Vad gick bra
-
-### Vad gick dåligt
-
-### Vad har du lärt dig
-
-### Vad hade ni gjort annorlunda om ni gjort om projektet
-
-### Vilka möjligheter ser du med de kunskaper du fått under kursen.
+### Vad gick bra, Vad gick dåligt
+Nästan allt var bra, och vi är vana vid att göra saker som att använda oop och databaser, men det som är nytt i det här projektet är tester och CI, och än så länge har jag problem med github actions, men jag jobbar på dem tills jag löser dem och förstå orsaken till problemen i build.
