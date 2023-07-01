@@ -17,6 +17,7 @@ public class Application {
 		userfacadeDB.connect("userTodo");
 		toDoFacadeDB.createTodoTable();
 		userfacadeDB.createUserTable();
+		// lista
 		boolean exit = false;
 		while (!exit) {
 			System.out.println("----- TODO App Menu -----");
